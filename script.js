@@ -7,6 +7,7 @@ const textBox = document.querySelector(".grid-text");
 const rainbowBtn = document.querySelector(".rainbow");
 const erase = document.querySelector(".erase");
 
+// Toggle for rainbow color
 let rainbowActivation = false;
 
 rainbowBtn.addEventListener("click", () => {
@@ -19,18 +20,23 @@ rainbowBtn.addEventListener("click", () => {
   }
 });
 
+//display input range on page loading
 textBox.innerHTML = `Grid ${input.value}x${input.value}`;
+
+//display input range on change
 input.addEventListener(
   "change",
   () => (textBox.innerHTML = `Grid ${input.value}x${input.value}`)
 );
 
+//adding x amount of child elements to parent
 function addSquare(x, elementChild, elementParent) {
   for (i = 0; i < x; i++) {
     elementParent.appendChild(elementChild.cloneNode(true));
   }
 }
 
+//color change on mouseover, color depends on rainbow acivation
 function changeColor(x) {
   x.addEventListener("mouseover", () => {
     if (rainbowActivation === false) {
@@ -44,15 +50,20 @@ function changeColor(x) {
   });
 }
 
+//"erasing" aka setting x element to default color of square
 function eraseSquare(x) {
   x.style.backgroundColor = `rgba(169, 169, 169, 0.8)`;
 }
 
+//getting the grid value from user
 let count = input.value;
 
+//adding squares in row
 addSquare(count, element, container);
+//adding squares in column
 addSquare(count, container, board);
 
+//change grid to user defined
 button.addEventListener("click", () => {
   count = input.value;
   board.innerHTML = "";
@@ -63,9 +74,11 @@ button.addEventListener("click", () => {
   allSquares.forEach((square) => changeColor(square));
 });
 
+//change color of all squares
 let allSquares = document.querySelectorAll(".square");
 allSquares.forEach((square) => changeColor(square));
 
+//erasing aka setting all squares to default color
 erase.addEventListener("click", () => {
   let squares = document.querySelectorAll(".square");
   squares.forEach((s) => eraseSquare(s));
