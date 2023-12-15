@@ -8,10 +8,22 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="change-grid">
-      <button class="btn">Submit</button>
-      <input type="text" class="input" name="input" size="20" />
+    <div class="submit-container">
+      <button class="btn grid-change">Submit</button>
+      <input
+        type="range"
+        class="input"
+        name="input"
+        min="1"
+        value="64"
+        max="100"
+        onchange="updateTextInput(this.value);"
+      />
+      <p class="grid-text"></p>
     </div>
+
+    <button class="btn rainbow">GO Rainbow</button>
+    <button class="btn erase">Erase</button>
 
     <div class="board">
       <div class="container">
