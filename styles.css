@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(219, 145, 225, 0.8);
+}
+.board {
+  position: absolute;
+
+  height: 50rem;
+  width: 50rem;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: stretch;
+}
+.square {
+  background-color: lightgrey;
+  border: 1px solid;
+  flex: 1;
+}
+
+.colorChange {
+  background-color: blue;
+}
+
+.change-grid {
+  display: flex;
+  width: 20em;
+  height: 2em;
+
+  position: absolute;
+  top: 1em;
+  align-items: center;
+}
+.btn {
+  height: 2em;
+  width: 5em;
+}
+
+.input {
+  margin-left: 1em;
+  background-color: white;
+  width: 10em;
+  height: 2em;
+}
